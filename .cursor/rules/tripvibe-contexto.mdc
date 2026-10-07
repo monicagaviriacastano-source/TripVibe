@@ -1,0 +1,6 @@
+---
+description: Puntero a memoria persistente de TripVibe. No sustituye AGENTS.md.
+alwaysApply: true
+---
+
+`AGENTS.md` ya entra en cada turno: no releerlo. Leer `reglas.md` y `state/actual.md`. No cargar el repo ni el chat completo. UI: `contexto/design.md`. Cerrar sesión importante: `skills/actualizar-contexto.md`.

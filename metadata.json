@@ -1,0 +1,6 @@
+{
+  "name": "TripVibe - Viajes Grupales y Alcancía del Parche",
+  "description": "El parche perfecto para tus viajes grupales: vota destinos, divide presupuestos y ahorra en combo con la alcancía comunitaria en COP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

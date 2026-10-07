@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2a685e;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #a8e6d9;
+  --color-on-primary-container: #2b695f;
+  --color-primary-fixed: #b0efe2;
+  --color-primary-fixed-dim: #95d2c6;
+  --color-on-primary-fixed: #00201b;
+  --color-on-primary-fixed-variant: #095047;
+
+  --color-secondary: #9b4500;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fc8a40;
+  --color-on-secondary-container: #672c00;
+  --color-secondary-fixed: #ffdbc9;
+  --color-secondary-fixed-dim: #ffb68d;
+  --color-on-secondary-fixed: #331200;
+  --color-on-secondary-fixed-variant: #763300;
+
+  --color-tertiary: #68548e;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #e3d2ff;
+  --color-on-tertiary-container: #68558f;
+  --color-tertiary-fixed: #ebddff;
+  --color-tertiary-fixed-dim: #d3bcfd;
+  --color-on-tertiary-fixed: #230e46;
+  --color-on-tertiary-fixed-variant: #4f3c75;
+
+  --color-surface: #fcf9f8;
+  --color-on-surface: #1b1c1c;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e4e2e1;
+  --color-on-surface-variant: #3f4946;
+  --color-surface-cream: #FFFBF0;
+  --color-surface-variant: #e4e2e1;
+  --color-surface-tint: #2a685e;
+
+  --color-surface-dark: #1A1A1A;
+  --color-surface-dark-card: #2D2D2D;
+  --color-surface-dark-active: #3A3A3A;
+
+  --color-outline: #707976;
+  --color-outline-variant: #bfc9c5;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-accent-green: #7FD8BE;
+  --color-accent-blue: #6DB3F2;
+  --color-accent-yellow: #FFD93D;
+  --color-accent-red: #FF6B6B;
+
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Custom typography utilities matching design tokens */
+.font-headline-xl {
+  font-family: var(--font-headline);
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.font-headline-lg {
+  font-family: var(--font-headline);
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-headline-lg-mobile {
+  font-family: var(--font-headline);
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-headline-md {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.font-headline-sm {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.font-body-lg {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.font-body-md {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.font-caption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.font-label-numeric-lg {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-label-numeric-md {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.font-label-numeric-sm {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+/* Escala: H1 20px, H2/sección 16px, párrafo 14px.
+   Gana a font-headline-* y a text-* porque no está en una capa de Tailwind. */
+h1[class*="font-headline"] {
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+}
+
+h2[class*="font-headline"],
+h3[class*="font-headline"],
+h4[class*="font-headline-sm"] {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+}
+
+p:not(.font-caption) {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Íconos: trazo, color principal, 1.5px, 24×24. En un fondo sólido usan el color del control. */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  user-select: none;
+}
+.material-symbols-fill {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+svg.lucide {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.5px;
+  stroke: currentColor;
+  fill: none;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.material-symbols-outlined.text-white,
+svg.lucide.text-white {
+  color: #fff;
+}
+
+.text-white .material-symbols-outlined,
+.text-white svg.lucide,
+.text-\[\#a8e6d9\] > svg.lucide,
+.text-\[\#a8e6d9\] > .material-symbols-outlined,
+button:disabled .material-symbols-outlined,
+button:disabled svg.lucide {
+  color: inherit;
+}
+
+svg.lucide[class*="FF6B6B"] {
+  color: #FF6B6B;
+  fill: #FF6B6B;
+}
+
+/* Botones: 48px de alto; texto 14px en móvil y 16px desde 768px.
+   Fuera de capa gana a h-* y text-*. font-* de este archivo también fija
+   font-size, por eso el :is() repite esa especificidad. */
+button,
+button:is(
+  .font-headline-xl,
+  .font-headline-lg,
+  .font-headline-lg-mobile,
+  .font-headline-md,
+  .font-headline-sm,
+  .font-body-lg,
+  .font-body-md,
+  .font-body-sm,
+  .font-caption,
+  .font-label-numeric-lg,
+  .font-label-numeric-md,
+  .font-label-numeric-sm
+) {
+  min-height: 48px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  button,
+  button:is(
+    .font-headline-xl,
+    .font-headline-lg,
+    .font-headline-lg-mobile,
+    .font-headline-md,
+    .font-headline-sm,
+    .font-body-lg,
+    .font-body-md,
+    .font-body-sm,
+    .font-caption,
+    .font-label-numeric-lg,
+    .font-label-numeric-md,
+    .font-label-numeric-sm
+  ) {
+    font-size: 16px;
+  }
+}
+
+/* Icono solo, o icono más un badge absoluto: área de toque de 48px. El trazo sigue en 24px. */
+button:not(:has(> :is(span, p, div, h1, h2, h3, h4, label):not(.material-symbols-outlined):not([class~="absolute"]))) {
+  min-width: 48px;
+}
+
+button > span.font-caption {
+  font-size: inherit;
+  line-height: 1.25;
+}
+
+/* Labels de la barra inferior: 12px en móvil y 14px desde 768px.
+   Más específico que `button` (14/16) y que el inherit de arriba.
+   No cambia el alto de 48px ni el texto del resto de botones. */
+nav button > span.font-caption {
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  nav button > span.font-caption {
+    font-size: 14px;
+  }
+}
+
+/* Puntos del carrusel: el mínimo de 48px no aplica. El círculo visible es 8px.
+   Más específico que `button` y que el min-width de botones de solo icono. */
+button.slider-dot,
+button.slider-dot:not(:has(> :is(span, p, div, h1, h2, h3, h4, label):not(.material-symbols-outlined):not([class~="absolute"]))) {
+  min-height: unset;
+  min-width: unset;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  border: 0;
+}
+
+.priority-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.priority-slider:focus {
+  outline: none;
+}
+
+.priority-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) var(--fill, 0%),
+    var(--color-surface-container-high) var(--fill, 0%),
+    var(--color-surface-container-high) 100%
+  );
+}
+
+.priority-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -10px;
+  border-radius: 999px;
+  border: 3px solid var(--color-primary);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(27, 28, 28, 0.16);
+}
+
+.priority-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--color-primary-container);
+}
+
+.priority-slider.is-empty::-webkit-slider-runnable-track {
+  background: var(--color-surface-container-high);
+}
+
+.priority-slider.is-empty::-webkit-slider-thumb {
+  opacity: 0;
+}
+
+.priority-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-surface-container-high);
+  border: none;
+}
+
+.priority-slider::-moz-range-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.priority-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 3px solid var(--color-primary);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(27, 28, 28, 0.16);
+}
+
+.priority-slider.is-empty::-moz-range-progress {
+  background: transparent;
+}
+
+.priority-slider.is-empty::-moz-range-thumb {
+  opacity: 0;
+}
+
+@keyframes tripvibe-plane {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.tripvibe-plane {
+  animation: tripvibe-plane 2.2s ease-in-out infinite;
+}
+
+@keyframes tripvibe-load {
+  from { width: 8%; }
+  to { width: 100%; }
+}
+
+.tripvibe-load {
+  animation: tripvibe-load 2.6s ease-out forwards;
+}
