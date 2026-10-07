@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# TripVibe
 
-# Run and deploy your AI Studio app
+Prototipo mobile-first para organizar un viaje en grupo: el plan, la gente, la plata y las decisiones. La interfaz está en español (Colombia) y los montos en pesos colombianos (COP).
 
-This contains everything you need to run your app locally.
+## Qué puedes probar
 
-View your app in AI Studio: https://ai.studio/apps/0c39bb68-1a96-4a1d-b471-528b0172800e
+- Ver el viaje, el itinerario y el detalle del plan.
+- Buscar destinos y abrir un viaje destacado de ejemplo.
+- Aportar a la alcancía compartida y ver el saldo del parche.
+- Votar, invitar gente y crear un viaje nuevo.
+- Recorrer el registro simulado en un toque.
 
-## Run Locally
+Crear un viaje **reemplaza** el viaje de ejemplo y empieza vacío. No hay una lista de varios viajes.
 
-**Prerequisites:**  Node.js
+## Estado
 
+Es un prototipo de frontend. Los datos viven en memoria: al recargar la página vuelven al ejemplo inicial. No hay backend, cuentas reales ni persistencia.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+`@google/genai` está en las dependencias y **no se usa**. No hace falta una clave de Gemini para correr la app.
+
+## Stack
+
+React 19, Vite, TypeScript y Tailwind CSS 4.
+
+## Requisitos
+
+- Node.js 22
+- pnpm (el repo incluye `pnpm-lock.yaml`)
+
+## Cómo correrlo
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000).
+
+Si en este Mac Node no está en el `PATH`:
+
+```bash
+./scripts/abrir.sh
+```
+
+## Scripts
+
+| Comando | Qué hace |
+| --- | --- |
+| `pnpm dev` | Servidor de desarrollo en el puerto 3000 |
+| `pnpm lint` | Revisa tipos con `tsc --noEmit` |
+| `pnpm build` | Genera la carpeta `dist` |
+| `pnpm preview` | Sirve el build local |
+
+## Vocabulario
+
+En la interfaz, **viaje** es el plan, **parche** es la gente, **alcancía** es la plata y **voto** es la decisión.

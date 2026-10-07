@@ -14,7 +14,7 @@
 
 - Backend / persistencia / auth: no existen (a propósito).
 - Lista de varios viajes: no. Crear sigue reemplazando.
-- README sigue siendo plantilla de AI Studio.
+- README describe el prototipo (ya no es la plantilla de AI Studio).
 
 ## Blockers
 
